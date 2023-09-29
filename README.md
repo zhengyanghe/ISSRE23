@@ -1,67 +1,38 @@
-# Multi-Input-Hardened SID (MINPSID)
+# FUZZYB and CELER
 
 ## Contents
 1. [Introduction](#introduction)
 2. [Environment Configuration](#environment-configuration)
 3. [Benchmark Info](#benchmark-info)
-3. [Running MINPSID](#minpsid)
-4. [Reproducing Paper Results](#reproducing-paper-results)
-5. [Contributor](#contributor)
-6. [Citation](#citation)
+3. [Running FUZZYB and CELER](#fuzzyb-celer)
+4. [Contributor](#contributor)
+5. [Citation](#citation)
 
 ## Introduction
-With the ever-shrinking size of transistors, silent data corruptions (SDCs) are becoming a common issue in high-performance computing (HPC).
-Selective instruction duplication (SID) is a widely used fault-tolerance technique that can obtain high SDC coverage with low performance overhead. 
-However, existing SID methods are confined to single program input in its assessment, assuming that error resilience of a program remains similar across inputs.
-Nevertheless, we observe that the assumption cannot always hold, leading to a drastic loss in SDC coverage across different inputs, compromising HPC reliability. 
-To this end, we propose
-**MINPSID**, an LLVM IR-level SID framework that automatically and flexibly hardens a program against SDC across multiple program inputs. 
-To know more about how **MINPSID** works, you may refer to our [SC'22 paper]() and [PPoPP'22 poster paper]().
+Soft error rate has been increasing due to the shrinking size of transistors, leading to an elevated risk of catastrophic failures in modern computer systems. 
+Error detection by duplicating instructions (EDDI) is a software-based technique to mitigate soft errors with a low runtime performance overhead and has been widely adopted in many safety- and mission-critical real-time systems such as space applications.
+However, these systems are commonly sensitive to runtime performance overheads the protection techniques incur. 
+Few studies have investigated the performance of EDDI across various system designs and operational parameters, hence lacking a complete understanding in the literature. 
+In this paper, we conduct comprehensive experiments to study the variation of EDDI runtime performance overhead and characterize the root causes.
+We find that there exist significant variations in performance overheads of EDDI, due to a few architectural and program-level factors.
+Based on the findings, we propose two practical techniques FUZZYB and CELER: FUZZYB uses an input searching technique to bound EDDI runtime performance overhead across different inputs for a given program; while CELER reduces EDDI runtime performance overheads using compiler transformation.
+To know more about how **FUZZYB** and **CELER** works, you may refer to our [ISSRE'23 paper]().
 
 <p align="center"><img src="./images/workflow.jpg"/></p>
 
 ## Environment Configuration
-> Before configuring the environments, please make sure your CPU supports at least 20 threads (checking by "nproc"), since fault injection experiments are time-consuming and should be accelerated in parallel.
 
-There are two methods to configure environments for MINPSID: one is using the Docker image we prepared, the other one is manually setting up environments on your local Ubuntu 16.04 machine. **We highly recommend you use the Docker image we prepared**, because all the dependencies are already configured on that. Very easy to use :)! Please do not use zsh to run the scripts, since it will automatically shutdown some per-instrcution-fault-injection experiments.
-
-### For those who use Docker (highly recommend!)
-To install Docker on your local **Linux** machine, you can follow the steps in this [LINK](https://docs.docker.com/engine/install/ubuntu/). You may also want to use Docker without sudo access (like I did in following commands), please check this [LINK](https://docs.docker.com/engine/install/linux-postinstall/). (ofc you can ignore this if you are expertise in Docker... orz)
-```bash
-# Download our prepared image from Docker Hub.
-docker pull hyfshishen/sc22-minpsid-env
-
-# Execute this image to a running container.
-docker run -it hyfshishen/sc22-minpsid-env /bin/bash
-```
-After you run this image as a running container, change directory to ```/root```, you can found LLFI and other dependencies have already installed! And you are ready to run MINPSID.
-
-### For those who don't use Docker
-In this way, you need to configure the dependencies manually. The dependencies are listed as below:
+he dependencies that needed for FUZZYB and CElER are listed as below:
 - Ubuntu 16.04
 - Python 2.7 and 3.5 (with PyYaml 4.2b4 installed)
 - Cmake (minimum v2.8)
-- tcsh
-- LLFI (LLVM-level Fault Injection Tool)
+- LLVM 3.4
 
-Among those dependencies, LLFI, which contains LLVM 3.4 and its related software (such as clang), is the key dependency for MINPSID.
-The commands for installing LLFI can be checked as below:
-```bash
-# Download LLFI source code
-git clone https://github.com/DependableSystemsLab/LLFI.git
-
-# Quick install LLFI & LLVM 3.4
-cd $WHERE_YOU_INSTALL_LLFI$/installer/
-python3 InstallLLFI.py --noGUI
-
-# Add LLVM/LLFI executable binary path to local environment
-echo "export PATH=$PATH:$WHERE_YOU_INSTALL_LLFI$/installer/llvm/bin/" >> ~/.bashrc
-echo "export PATH=$PATH:$WHERE_YOU_INSTALL_LLFI$/installer/llfi/bin/" >> ~/.bashrc
-```
+Among those dependencies, LLVM 3.4 is the key dependency for FUZZYB and CELER.
 
 ## Benchmark Info
 > In the following benchmark table:
->- *Name in Paper*: means the benchmark name shown in our SC'22 paper.
+>- *Name in Paper*: means the benchmark name shown in our ISSRE'23 paper.
 >- *Name in Code*: means the benchmark name used in code.
 
 In this repository, you should use *Name in Code* while running the code.
