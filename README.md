@@ -4,9 +4,8 @@
 1. [Introduction](#introduction)
 2. [Environment Configuration](#environment-configuration)
 3. [Benchmark Info](#benchmark-info)
-3. [Running FUZZYB and CELER](#fuzzyb-celer)
-4. [Contributor](#contributor)
-5. [Citation](#citation)
+4. [Running FUZZYB and CELER](#fuzzyb-celer)
+5. [Contributor](#contributor)
 
 ## Introduction
 Soft error rate has been increasing due to the shrinking size of transistors, leading to an elevated risk of catastrophic failures in modern computer systems. 
@@ -18,7 +17,6 @@ We find that there exist significant variations in performance overheads of EDDI
 Based on the findings, we propose two practical techniques FUZZYB and CELER: FUZZYB uses an input searching technique to bound EDDI runtime performance overhead across different inputs for a given program; while CELER reduces EDDI runtime performance overheads using compiler transformation.
 To know more about how **FUZZYB** and **CELER** works, you may refer to our [ISSRE'23 paper]().
 
-<p align="center"><img src="./images/workflow.jpg"/></p>
 
 ## Environment Configuration
 
@@ -63,12 +61,12 @@ In this repository, you should use *Name in Code* while running the code.
 | [LBM](https://www.spec.org/cpu2006/Docs/470.lbm.html)                                         | lbm               | SPEC      | 86 100_100_130_ldc.of 0 0        | 7899  | large   |
 
 
-## MINPSID
-> This section is to execute MINPSID on above benchmarks.
+## FUZZYB
+> This section is to execute FUZZYB on above benchmarks.
 
-After changing directory to MINPSID-launcher by executing ```cd MINPSID-launcher```, There are three steps to generate MINPSID protection on selected benchmarks. We here use Pathfinder from Rodinia as example:
+After changing directory to FUZZYB-launcher by executing ```cd FUZZYB-launcher```, There are three steps to generate FUZZYB selection on selected benchmarks. We here use Pathfinder from Rodinia as example:
 
-1. Fuzzing for finding incubative instructions (IIS). This step contains masssive fault-injection experiments and may take you some time. Please press **ENTER** after the FI results are finished (if you wait for like 10 minutes and nothing new is printed on the screen, and that means finished).
+1. Fuzzing for finding the inputs that bounding the upper performance overhead of EDDI. This step contains feature collection experiments and may take you some time.
     ```bash
     python3 01-fuzzing-finding-IIS.py pathfinder 20
     ```
@@ -81,20 +79,6 @@ After changing directory to MINPSID-launcher by executing ```cd MINPSID-launcher
     python3 03-SID-code-transformation.py pathfinder 20
     ```
 Then, the protected IR can be checked by the results printed on the screen.
-
-## Reproducing Paper Results
-> This section is for SC'22 AD/AE review steps.
-
-We provide step by step commands for running MINPSID and result-generation scripts.
-There are three key evaluations in this paper:
-- **Figure 2 in Section III**: This is showing why existing SID method cannot garantee protection across multiple input in each benchmark.
-- **Figure 6 in Section VI**: This is showing how MINPSID outperforms existing SID method across multiple input in each benchmark.
-- **Figure 9 in Section VII**: This is showing that MINPSID can also achieve promising result in real-world input scenarios.
-
-The time-cost is different across different benchmarks, which can be found in Table above. Besides, please use *Name in Code* (also shown in above Table) to execute each benchmark. Before you start, please download the MINPSID code by following commands:
-```bash
-git clone https://github.com/hyfshishen/MINPSID.git
-```
 
 ### Section III - Preliminary Study
 Results in this section refers to Figure 2 in paper.
@@ -153,9 +137,4 @@ Results in this section refers to Figure 9 in paper. We here use bfs as example,
     ```
 
 ## Contributor
-[Yafan Huang](https://hyfshishen.github.io/) from the University of Iowa.
-
-## Citation
-- **[SC'22]** [Mitigating Silent Data Corruptions in HPC Applications across Multiple Program Inputs](https://ieeexplore.ieee.org/document/10046091)
-
-- **[PPoPP'22]** [Hardening selective protection across multiple program inputs for HPC applications](https://dl.acm.org/doi/10.1145/3503221.3508414)
+[Zhengyang He](https://hyfshishen.github.io/) from the University of Iowa.
