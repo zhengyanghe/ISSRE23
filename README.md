@@ -39,17 +39,29 @@ In this repository, you should use *Name in Code* while running the code.
 
 | **Benchmark (Name in Paper)**  | **Benchmark (Name in Code)** | **Suite** | **Program Input** | **No. of Static Instrunctions** | **Benchmark Workload** |
 |--|--|--|--|--|--|
-| [kNN](https://github.com/JuliaParallel/rodinia/tree/master/openmp/nn)                         | nn                | Rodinia   | filelist.txt 5 30 90             | 349  | small    |
-| [Backprop](https://github.com/JuliaParallel/rodinia/tree/master/openmp/backprop)              | backprop          | Rodinia   | 65536                            | 1680 | medium  |
-| [BFS](https://github.com/JuliaParallel/rodinia/tree/master/openmp/bfs)                        | bfs               | Rodinia   | graph1M.txt                      | 383  | small    |
-| [Kmeans](https://github.com/JuliaParallel/rodinia/tree/master/openmp/kmeans)                  | kmeans            | Rodinia   | -i kdd_cup                       | 1018 | medium  |
-| [Needle](https://github.com/JuliaParallel/rodinia/tree/master/openmp/nw)                      | needle            | Rodinia   | 2048 10 2                        | 1069 |  small  |
-| [Particlefilter](https://github.com/JuliaParallel/rodinia/tree/master/openmp/particlefilter)  | particlefilter    | Rodinia   | -x 128 -y 128 -z 10 -np 10000    | 1869 | medium  |
-| [Pathfinder](https://github.com/JuliaParallel/rodinia/tree/master/openmp/pathfinder)          | pathfinder        | Rodinia   | 1000 10                          | 372  | small    |
-| [LUD](https://github.com/JuliaParallel/rodinia/tree/master/openmp/lud)                        | lu                | Rodinia   | -v -s 256                        | 1161 | medium  |
-| [FFT](https://github.com/staceyson/splash2/tree/master/codes/kernels/fft)                     | fft               | SPLASH-2  | -m10 -p1 -n65536 -l4 -t          | 2138 | small    |
-| [HPCCG](https://github.com/Mantevo/HPCCG)                                                     | hpccg             | Mantevo   | 64 64 64                         | 1975 | large    |
-| [Xsbench](https://github.com/ANL-CESAR/XSBench/tree/master/openmp-threading)                  | xsbench           | CESAR     | -t 1 -s small -g 512 -l 1500     | 2366 | large    |
+| [kNN](https://github.com/JuliaParallel/rodinia/tree/master/openmp/nn)                         | nn                | Rodinia   | list6553600.txt 6 220 789	       | 349  | small    |
+| [Backprop](https://github.com/JuliaParallel/rodinia/tree/master/openmp/backprop)              | backprop          | Rodinia   | 3744752                          | 1680 | medium   |
+| [BFS](https://github.com/JuliaParallel/rodinia/tree/master/openmp/bfs)                        | bfs               | Rodinia   | graph9586688.t                   | 383  | small    |
+| [Kmeans](https://github.com/JuliaParallel/rodinia/tree/master/openmp/kmeans)                  | kmeans            | Rodinia   | 57141 43 3                       | 1018 | medium   |
+| [Needle](https://github.com/JuliaParallel/rodinia/tree/master/openmp/nw)                      | needle            | Rodinia   | 2752 134 1                       | 1069 |  small   |
+| [B+tree](https://github.com/JuliaParallel/rodinia/tree/master/openmp/b+tree)                  | b+tree            | Rodinia   | 5714026 1287 11562 13507	       | 6622 | large    |
+| [Pathfinder](https://github.com/JuliaParallel/rodinia/tree/master/openmp/pathfinder)          | pathfinder        | Rodinia   | 571831 435                       | 372  | small    |
+| [LUD](https://github.com/JuliaParallel/rodinia/tree/master/openmp/lud)                        | lud               | Rodinia   | -v -s 1573                       | 1161 | medium   |
+| [MYOCYTE](https://github.com/JuliaParallel/rodinia/tree/master/openmp/myocyte)                | myocyte           | Rodinia   | 229 172 1 1                      | 7541 | large    |
+| [FFT](https://github.com/staceyson/splash2/tree/master/codes/kernels/fft)                     | fft               | SPLASH-2  | -m24 -p8 -n281076736 -l96        | 2138 | small    |
+| [COMD]([https://github.com/Mantevo/COMD](http://downloads.mantevo.org/CoMD_ref-1.1b.html))    | comd              | Mantevo   | -x 14 -y 11 -z 14 -N 14	       | 11457| large    |
+| [HPCCG](https://github.com/Mantevo/HPCCG)                                                     | hpccg             | Mantevo   | 74 55 74                         | 1975 | large    |
+| [Xsbench](https://github.com/ANL-CESAR/XSBench/tree/master/openmp-threading)                  | xsbench           | CESAR     | -t 1 -s small -g 11429 -l 8578   | 2366 | large    |
+| [Blackscholes](https://github.com/bamos/parsec-benchmark)                                     | blackscholes      | PARSEC    | 1 98282.txt output.txt	       | 740  | medium   |
+| [BT](https://www.nas.nasa.gov/software/npb.html)                                              | BT                | NPB       | default input                    | 26013 | large   |
+| [LU](https://www.nas.nasa.gov/software/npb.html)                                              | LU                | NPB       | default input                    | 24017 | large   |
+| [SP](https://www.nas.nasa.gov/software/npb.html)                                              | SP                | NPB       | default input                    | 21630 | large   |
+| [EP](https://www.nas.nasa.gov/software/npb.html)                                              | EP                | NPB       | default input                    | 912  | medium   |
+| [FFT2](https://github.com/embecosm/mibench/tree/master/telecomm/FFT)                          | fft2              | MiBench   | 58 131072	                       | 744  | medium   |
+| [STENCIL](http://impact.crhc.illinois.edu/parboil/parboil_download_page.aspx)                 | stencil           | Parboil   | -i 128x128x32.bin 128 128 32 100 -o output.dat| 1747  | medium |
+| [MCF](https://www.spec.org/cpu2006/Docs/429.mcf.html)                                         | mcf               | SPEC      | inp.in		                   | 3917  | large   |
+| [LBM](https://www.spec.org/cpu2006/Docs/470.lbm.html)                                         | lbm               | SPEC      | 86 100_100_130_ldc.of 0 0        | 7899  | large   |
+
 
 ## MINPSID
 > This section is to execute MINPSID on above benchmarks.
