@@ -61,6 +61,15 @@ In this repository, you should use *Name in Code* while running the code.
 | [LBM](https://www.spec.org/cpu2006/Docs/470.lbm.html)                                         | lbm               | SPEC      | 86 100_100_130_ldc.of 0 0        | 7899  | large   |
 
 
+## CELER
+> This section is to execute CELER on above benchmarks.
+After changing directory to CELER-launcher by executing ```cd CELER-launcher```, There are three steps to generate CELER selection on selected benchmarks. We here use Pathfinder from Rodinia as example:
+
+1. Protecting selected programs with original EDDI and CELER seperatly. This step will generate two kinds of protection programs and the runtime overhead result reflects the paper's figure 15.
+    ```bash
+    python 01-celer-generate.py pathfinder
+    ```
+3. 
 ## FUZZYB
 > This section is to execute FUZZYB on above benchmarks.
 
