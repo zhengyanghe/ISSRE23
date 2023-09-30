@@ -49,7 +49,7 @@ In this repository, you should use *Name in Code* while running the code.
 | [LUD](https://github.com/JuliaParallel/rodinia/tree/master/openmp/lud)                        | lud               | Rodinia   | -v -s 1573                       | 1161 | medium   |
 | [MYOCYTE](https://github.com/JuliaParallel/rodinia/tree/master/openmp/myocyte)                | myocyte           | Rodinia   | 229 172 1 1                      | 7541 | large    |
 | [FFT](https://github.com/staceyson/splash2/tree/master/codes/kernels/fft)                     | fft               | SPLASH-2  | -m24 -p8 -n281076736 -l96        | 2138 | small    |
-| [COMD]([https://github.com/Mantevo/COMD](http://downloads.mantevo.org/CoMD_ref-1.1b.html))    | comd              | Mantevo   | -x 14 -y 11 -z 14 -N 14	       | 11457| large    |
+| [COMD](http://downloads.mantevo.org/CoMD_ref-1.1b.html)                                       | comd              | Mantevo   | -x 14 -y 11 -z 14 -N 14	       | 11457| large    |
 | [HPCCG](https://github.com/Mantevo/HPCCG)                                                     | hpccg             | Mantevo   | 74 55 74                         | 1975 | large    |
 | [Xsbench](https://github.com/ANL-CESAR/XSBench/tree/master/openmp-threading)                  | xsbench           | CESAR     | -t 1 -s small -g 11429 -l 8578   | 2366 | large    |
 | [Blackscholes](https://github.com/bamos/parsec-benchmark)                                     | blackscholes      | PARSEC    | 1 98282.txt output.txt	       | 740  | medium   |
