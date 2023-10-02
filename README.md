@@ -39,7 +39,7 @@ In this repository, you should use *Name in Code* while running the code.
 |--|--|--|--|--|--|
 | [kNN](https://github.com/JuliaParallel/rodinia/tree/master/openmp/nn)                         | nn                | Rodinia   | list6553600.txt 6 220 789	       | 349  | small    |
 | [Backprop](https://github.com/JuliaParallel/rodinia/tree/master/openmp/backprop)              | backprop          | Rodinia   | 3744752                          | 1680 | medium   |
-| [BFS](https://github.com/JuliaParallel/rodinia/tree/master/openmp/bfs)                        | bfs               | Rodinia   | graph9586688.t                   | 383  | small    |
+| [BFS](https://github.com/JuliaParallel/rodinia/tree/master/openmp/bfs)                        | bfs               | Rodinia   | graph9586688.txt                 | 383  | small    |
 | [Kmeans](https://github.com/JuliaParallel/rodinia/tree/master/openmp/kmeans)                  | kmeans            | Rodinia   | 57141 43 3                       | 1018 | medium   |
 | [Needle](https://github.com/JuliaParallel/rodinia/tree/master/openmp/nw)                      | needle            | Rodinia   | 2752 134 1                       | 1069 |  small   |
 | [B+tree](https://github.com/JuliaParallel/rodinia/tree/master/openmp/b+tree)                  | b+tree            | Rodinia   | 5714026 1287 11562 13507	       | 6622 | large    |
